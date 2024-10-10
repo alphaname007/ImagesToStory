@@ -1,6 +1,5 @@
 import os
 
-from functions.SetupHandler import *
 from functions.FileHandler import *
 from functions.Orchastrator import *
 
