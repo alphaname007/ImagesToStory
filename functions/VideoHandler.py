@@ -35,7 +35,7 @@ def generate_Image_Clips(image_paths:list, duration:float):
     return image_clips
 
 
-def generate_Text_Clips(sentences:list, voice_overlay_timestamps:list):
+def generate_Text_Clips(sentences:list, voice_overlay_timestamps:list, color="white", bg_color="black"):
     text_clips = []
     for i, sentence in enumerate(sentences):
         sentence_words = sentence.split(" ")
@@ -45,8 +45,8 @@ def generate_Text_Clips(sentences:list, voice_overlay_timestamps:list):
         all_combined_words_duration = voice_overlay_timestamps[i+1] - voice_overlay_timestamps[i]
         combined_words_duration = all_combined_words_duration / len(combined_words)
         for j, combined_sentence_word in enumerate(combined_words):
-            text_clip = TextClip(combined_sentence_word, fontsize=80, color="white", font="Maxima")
-            text_clip = text_clip.set_position(('center', 'center'))
+            text_clip = TextClip(" "+combined_sentence_word+" ", fontsize=80, color=color, bg_color=bg_color, font="Maxima")
+            text_clip = text_clip.set_position(('center', 1700))
             text_clip = text_clip.set_start(voice_overlay_timestamps[i] + j * combined_words_duration)
             text_clip = text_clip.set_duration(combined_words_duration)
             text_clips.append(text_clip)
