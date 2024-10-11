@@ -9,7 +9,7 @@ from functions.VideoHandler import *
 
 
 def generate_Episode(media_directory_path:str, text:str):
-    #try:
+    try:
         print("\t> started generation")
 
         print("\t> extract sentences: ", end="")
@@ -17,10 +17,11 @@ def generate_Episode(media_directory_path:str, text:str):
         print("☑")
 
         print("\t> generate Voice-Overlays: ", end="")
-        voice_overlay_paths = generate_Voice_Overlays(sentences)
+        generate_Voice_Overlays(sentences)
         print("☑")
 
         print("\t> generate Voice-Overlay-Clips: ", end="")
+        voice_overlay_paths = get_VoiceOverlay_Paths()
         voice_overlay_clips, voice_overlay_timestamps = generate_Voice_Overlay_Clips(voice_overlay_paths)
         print("☑")
 
@@ -48,9 +49,9 @@ def generate_Episode(media_directory_path:str, text:str):
         
         return True, f"Successfully rendered"
     
-    #except Exception as e:
-    #    traceback.print_exc()
-    #   return False, f"could not render because of:{e}"
-    
-    #finally:
-    #    clear_TMP_DIR()
+    except Exception as e:
+        traceback.print_exc()
+        return False, f"could not render because of:{e}"
+
+    finally:
+        clear_TMP_DIR()
