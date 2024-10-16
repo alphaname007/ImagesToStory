@@ -30,10 +30,10 @@ def get_Image_Paths(media_directory_path:str):
     return [os.path.join(media_directory_path, file) for file in os.listdir(media_directory_path) if file.lower().endswith('.jpg')]
 
 def get_Outro_Path(media_directory_path:str):
-    return os.path.join(media_directory_path, "Outro.mp4")
+    return os.path.join(media_directory_path, "outro.mp4")
 
 def get_Music_Path(media_directory_path:str):
-    return os.path.join(media_directory_path, "Music.mp3")
+    return os.path.join(media_directory_path, "music.mp3")
 
 def get_Output_Path(media_directory_path:str):
-    return os.path.join(media_directory_path, "Story.mp4")
+    return os.path.join(media_directory_path, "story.mp4")
