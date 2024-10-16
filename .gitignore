@@ -1,6 +1,7 @@
 # Custom
 .tmp/
 speech_output.wav
+StoryTEMP_MPY_wvf_snd.mp4
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
