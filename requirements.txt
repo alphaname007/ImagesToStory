@@ -1,0 +1,3 @@
+TTS
+opencv-python
+moviepy
