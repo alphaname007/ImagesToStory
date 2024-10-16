@@ -10,6 +10,7 @@ from functions.VideoHandler import *
 
 def generate_Episode(media_directory_path:str, text:str):
     try:
+        clear_TMP_DIR()
         print("\t> started generation")
 
         print("\t> extract sentences: ", end="")
@@ -54,4 +55,4 @@ def generate_Episode(media_directory_path:str, text:str):
         return False, f"could not render because of:{e}"
 
     finally:
-        clear_TMP_DIR()
+        pass
