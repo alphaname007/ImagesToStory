@@ -23,7 +23,8 @@ def get_VoiceOverlay_Path():
     return path
 
 def get_VoiceOverlay_Paths():
-    return [os.path.join(get_VoiceOverlay_Path(), file) for file in os.listdir(get_VoiceOverlay_Path()) if file.lower().endswith('.mp3')]
+    voice_overlay_paths = [os.path.join(get_VoiceOverlay_Path(), file) for file in os.listdir(get_VoiceOverlay_Path()) if file.lower().endswith('.wav')]
+    return sorted(voice_overlay_paths, key=lambda x: int(x.split('_')[1].split('.')[0]))
 
 def get_Image_Paths(media_directory_path:str):
     return [os.path.join(media_directory_path, file) for file in os.listdir(media_directory_path) if file.lower().endswith('.jpg')]
